@@ -1,3 +1,5 @@
+PLZ IGNORE THIS ALL RIGHT  NOW IT IS IN THE DEVELOPMENT PHASE
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
