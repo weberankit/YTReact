@@ -5,6 +5,7 @@ const Head=()=>{
 const dispatch = useDispatch();
 const toggleMenuHandler = ()=>{
     dispatch(toogleSlice())
+    
 }
 
     return(
