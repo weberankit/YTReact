@@ -1,8 +1,10 @@
 //import React from "react"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { toogleSlice } from "../utils/appSlice"; 
 import {useState,useEffect} from "react"
 import { YOUTUBE_Search_API } from "../utils/constant";
+//import {useSelector} from "react-redux"
+import { cacheResults } from "../utils/searchSlice";
 const Head=()=>{
 const dispatch = useDispatch();
 const toggleMenuHandler = ()=>{
@@ -12,7 +14,22 @@ const toggleMenuHandler = ()=>{
 const [searchQuery , setSearchQuery]  = useState("")
 const [suggestion , setSuggestion] =useState([])
 const [showSuggestion , setShowSuggestion] = useState(false)
+
 console.log(searchQuery)
+
+//subscribing to the store
+const searchCache=useSelector((store)=>store.search)
+console.log(searchCache)
+
+/*
+searchCache={
+  "iphone":["iphone11" ,"iphone12"]
+}
+
+searchQuery = iphone
+*/
+
+
 
 useEffect(()=>{
     
@@ -21,7 +38,17 @@ useEffect(()=>{
   // debouncing 
   //calling api on differnce of keystroke 200ms
 
-   const timer=  setTimeout(()=>{getSearchsuggestion()},200)
+   const timer=  setTimeout(()=>{
+    //already present then directly set suggestion no need to call api
+    if(searchCache[searchQuery]){
+      setSuggestion(searchCache[searchQuery])
+    //  console.log(searchCache[searchQuery])
+    }else{
+      getSearchsuggestion()
+    }
+
+
+},200)
 
      //when reconocillation or page refresh
      //most imp stroke timme less 200ms  remove that  setTimeout
@@ -38,6 +65,12 @@ const getSearchsuggestion= async()=>{
 
   //console.log(json)
   setSuggestion(json[1])
+
+  //dispatch
+  //used searchquery as key beacuse YT Api result based on searchquery
+  dispatch(cacheResults({
+    [searchQuery] : json[1],
+  }))
 }
 
 

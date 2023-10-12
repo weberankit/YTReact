@@ -8,7 +8,10 @@ const searchSlice = createSlice({
  },
  reducers:{
     cacheResults:(state,action)=>{
-    state={ ...action.payload ,  ...state }
+
+    //state={ ...state , ...action.payload}// this not working don't know why
+    //use older way merging two objects
+    state=Object.assign(state, action.payload)
     }
  }
 
