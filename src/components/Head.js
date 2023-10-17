@@ -5,6 +5,10 @@ import {useState,useEffect} from "react"
 import { YOUTUBE_Search_API } from "../utils/constant";
 //import {useSelector} from "react-redux"
 import { cacheResults } from "../utils/searchSlice";
+//import {Link} from "react-router-dom"
+import { storeSearchQuery ,tooglefuncSlice} from "../utils/filterSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMicrophone, faSearch, faUser, faVideo} from '@fortawesome/free-solid-svg-icons';
 const Head=()=>{
 const dispatch = useDispatch();
 const toggleMenuHandler = ()=>{
@@ -13,9 +17,9 @@ const toggleMenuHandler = ()=>{
 }
 const [searchQuery , setSearchQuery]  = useState("")
 const [suggestion , setSuggestion] =useState([])
-const [showSuggestion , setShowSuggestion] = useState(false)
 
-console.log(searchQuery)
+
+console.log(searchQuery,suggestion,"suggestion")
 
 //subscribing to the store
 const searchCache=useSelector((store)=>store.search)
@@ -75,29 +79,60 @@ const getSearchsuggestion= async()=>{
 
 
 
-    return(
 
-<div className="grid grid-flow-col p-5 m-2 shadow-lg">
+//disable suggestion on click anywhere in doucment
+useEffect(() => {
+  const closeSuggestionBox = () => {
+    setSuggestion([]);
+   
+  };
+
+  // Add a click event listener to the document to close the suggestions on outside click
+  document.addEventListener("click", closeSuggestionBox);
+
+  // Remove the click event listener when the component unmounts
+  return () => {
+    document.removeEventListener("click", closeSuggestionBox);
+  };
+}, []);
+
+
+//console.log(Math.random())
+
+    return(
+<div className="fixed w-full bg-white">
+<div className="grid grid-flow-col p-5 m-2 shadow-lg ">
 
     <div className="flex col-span-1 ">
     <img className="h-8 cursor-pointer" onClick={()=>toggleMenuHandler()} alt="menu" src="https://www.svgrepo.com/show/506800/burger-menu.svg"/>
-   <a href="/"> <img className="h-16 mx-4" alt ="youtube logo" src="https://www.svgrepo.com/show/354594/youtube.svg" />
+   <a href="/"> <img className="h-8 mx-4" alt ="youtube logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzg_LCf5ZahVQ42WRFD0PS3TNrpdOhqvckaO6-xgyo7kmVo5KW2EV6CEUakyaSGdmxqw&usqp=CAU" />
    </a> 
     </div>
     <div>
-    <div className="col-span-10 px-10">
-    <input className="w-1/2 border border-gray-400 p-2  rounded-l-full"  type="text" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} 
-    onFocus={()=>setShowSuggestion(true)}
-    onBlur={()=>setShowSuggestion(false)}
+    <div className="col-span-12 px-10">
+    <input className="w-5/6 border border-gray-400 p-2  rounded-l-full"  type="text" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} 
+  
     />
-    <button className="border border-gray-400 p-2 rounded-r-full">Search</button>
+    <button className="border border-gray-400 p-2 rounded-r-full" onClick={()=>{
+      dispatch(storeSearchQuery(searchQuery))
+      dispatch(tooglefuncSlice(true))
+      setSuggestion([])
+      }}><FontAwesomeIcon icon={faSearch} className="text-gray-700"/></button>
     </div>
-  <div className="fixed bg-white py-2 px-5 w-[37rem] shadow-lg rounded-md border border-gray-100">
+
+
+
+  <div className="fixed bg-white py-2 px-5 w-[32rem] shadow-lg rounded-md border border-gray-100">
     <ul>
 
-     {showSuggestion && suggestion.map((item)=>{
+     {suggestion.map((item)=>{
         return  (
-        <li key={item} className="py-2 shadow-sm">{item}</li>)
+        <li onClick={()=>{
+       //   setSearchQuery(item)
+          dispatch(storeSearchQuery(item))
+         dispatch(tooglefuncSlice(true))
+         setSuggestion([])
+        }} key={item} className="py-2 shadow-sm cursor-pointer hover:shadow-2xl"     >{item}</li>)
      })}
     </ul>
   </div>
@@ -105,13 +140,22 @@ const getSearchsuggestion= async()=>{
 
     </div>
 
+<div className="h-1 rounded-lg"><FontAwesomeIcon icon={faMicrophone} className="pt-3.5" /></div>
+    <div  className="col-span-1 text-center flex justify-around" >
+  <div><FontAwesomeIcon icon={faVideo} className="pt-3.5"/></div>  
 
-    <div  className="col-span-1 text-center" >
-    <img className="h-8" alt="user-icon" src="https://www.svgrepo.com/show/525577/user-circle.svg"/>
+  <div ><FontAwesomeIcon icon={faUser} className="text-red-600 pt-3.5"/>
+    </div> 
     </div>
 
 
 </div>
+</div>
     )
 }
+
+
+
+
+
 export default Head
