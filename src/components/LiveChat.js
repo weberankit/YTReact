@@ -26,7 +26,7 @@ return(()=>{clearInterval(timer)})
 
 return(
     <>
-<div className="w-full h-[600px] ml-2 p-2  rounded-lg overflow-y-scroll flex flex-col-reverse bg-black text-white shadow-white">
+<div className="w-full h-[400px] ml-2 p-2  rounded-lg overflow-y-scroll flex flex-col-reverse bg-black text-white shadow-white ">
     <h1>live Chat</h1>
     <div>
 {chatMessages.map(c=> <ChatMessage name={c.name} message={c.message}/> )}
@@ -38,8 +38,8 @@ return(
     dispatch(addMessage({name:"Ankit kr" , message:liveMessage}))
     setLiveMessage("")
     ;}}>
-<input className="border border-black text-black" type="text" value={liveMessage} onChange={(e)=>{setLiveMessage(e.target.value)}}/>    
-<button className="px-2 mx-2 bg-green-400">Send</button>
+<input className="border border-black text-black rounded-lg" type="text" value={liveMessage} onChange={(e)=>{setLiveMessage(e.target.value)}}/>    
+<button className="px-2 mx-2 bg-green-400 rounded-lg">Send</button>
 </form> 
 
 </>

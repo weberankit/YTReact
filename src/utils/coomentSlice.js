@@ -9,8 +9,9 @@ function filterNestedComments(comments, id , item) {
   
     for (const comment of comments) {
       if (comment.id === id) {
-  
+      //  id="ukkj"
         comment.replies.push(item)
+      //  console.log(id,comment.replies,"abey kingh")
       } else {
         const filteredReplies = filterNestedComments(comment.replies, id , item);
      
@@ -43,7 +44,15 @@ const chatSlice=createSlice({
 
       
     filterNestedComments(state.commentData,action.payload.id ,action.payload)
+    //now changing id so that reply to this will be nested
+    //Note Ihave used id here which is very perfect so use any function generator unique id
+    action.payload.id=new Date().getTime()+10+Math.random()
    // console.log(state.commentData,"Checkoutthis one")
+   
+
+
+
+
        }
 
 
