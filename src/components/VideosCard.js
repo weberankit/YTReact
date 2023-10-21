@@ -4,10 +4,10 @@ const VideoCards=({info})=>{
     //console.log(info)
     
 const select= useSelector((store)=>store.app)
-console.log(select.isMenuopen,"useselector")
+//console.log(select.isMenuopen,"useselector")
 const{snippet ,statistics} = info
 const {channelTitle ,title,thumbnails} = snippet;
-console.log(info)
+//console.log(info)
 
     return(
         <div className={select.isMenuopen===false ?" md:w-[500px] ":"w-96"}>

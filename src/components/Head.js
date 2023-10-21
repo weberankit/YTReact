@@ -39,11 +39,11 @@ const [searchQuery , setSearchQuery]  = useState("")
 const [suggestion , setSuggestion] =useState([])
 
 
-console.log(searchQuery,suggestion,"suggestion")
+//console.log(searchQuery,suggestion,"suggestion")
 
 //subscribing to the store
 const searchCache=useSelector((store)=>store.search)
-console.log(searchCache)
+//console.log(searchCache)
 
 /*
 searchCache={
@@ -54,7 +54,7 @@ searchQuery = iphone
 */
 
 const [hideIcon , setHideIcon]=useState(true)
-console.log(hideIcon,"hideicon")
+//console.log(hideIcon,"hideicon")
 useEffect(()=>{
     
     //console.log(searchQuery+"ji")

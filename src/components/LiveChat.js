@@ -11,7 +11,7 @@ useEffect(()=>{
 const timer= setInterval(()=>{
 
 //API polling
-console.log("calling api")
+//console.log("calling api")
 dispatch(addMessage({
     name:generate(),
     message:makeid(20)

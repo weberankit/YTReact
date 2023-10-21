@@ -23,13 +23,13 @@ const [qrcodeShow , setQrcodeShow]=useState(false)
 
 
   useEffect(() => {
-    console.log("hii");
+  //  console.log("hii");
     dispatch(closeMenu());
   }, []);
 
 
 const QrCodeString="https://www.youtube.com/embed/"+ searchParams.get("v")+"?autoplay=1&mute=1"
-console.log(QrCodeString)
+//console.log(QrCodeString)
   return( 
 
    
@@ -38,7 +38,7 @@ console.log(QrCodeString)
  <div className="px-5 flex flex-col ">
   <div >
   
-    <div className="w-full rounded-md pt-3 ">
+    <div className="w-full rounded-md pt-3 relative">
     <iframe 
     className="w-full  youtube-iframe"
     height="500" 
@@ -61,7 +61,7 @@ console.log(QrCodeString)
   </div>
 
   <div className="flex justify-around w-72">
-   <div className="absolute left-5 sm:left-[50%]">{qrcodeShow&&<QRCode value={QrCodeString}/>}</div>
+   <div className=" fixed left-[50%] top-[50%]">{qrcodeShow&&<QRCode value={QrCodeString}/>}</div>
     <h2 className="p-3 bg-white font-bold"> <FontAwesomeIcon icon={faThumbsUp} className="font-normal"/> 101K</h2>
     <h3 onClick={
       ()=>{

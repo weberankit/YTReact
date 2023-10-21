@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import store from "../utils/store";
 
 const Comment = ({ data }) => {
-  console.log(data,"mai fake hu");
+//  console.log(data,"mai fake hu");
   const [add, setAdd] = useState([]);
 
   const [check,setcheck]=useState()
-     console.log(check)
+   //  console.log(check)
   const { name, text, replies } = data;
   const dispatch = useDispatch();
   return (
@@ -96,7 +96,7 @@ const CommentList = ({ comments }) => {
 
 const CommentControl = () => {
   let commentData = useSelector((store) => store.comment);
-  console.log(commentData.commentData,"nnnn");
+  //console.log(commentData.commentData,"nnnn");
   const dispatch = useDispatch();
   const [reply, setReply] = useState([]);
   //  const [commentDatas,setCommentData]=useState(commentData.commentData)

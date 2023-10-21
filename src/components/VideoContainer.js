@@ -8,7 +8,7 @@ const VideoContainer = () => {
   const SearchValue = useSelector((store) => store.filter);
   const [videos, setVideos] = useState([]);
   const [filterVideos, setFilterVideos] = useState([]);
-   console.log(videos)
+   ///console.log(videos)
   useEffect(() => {
     getVideos();
   }, []);

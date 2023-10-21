@@ -40,7 +40,7 @@ const chatSlice=createSlice({
 
        replyComment:(state,action)=>{
      //   state.commentData.push(action.payload)
-        console.log(action.payload.id,action.payload)
+       // console.log(action.payload.id,action.payload)
 
       
     filterNestedComments(state.commentData,action.payload.id ,action.payload)
