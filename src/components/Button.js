@@ -42,7 +42,7 @@ console.log(getData(sortedButton))
 {
  <button  
   onClick={()=>{setbgColor()}}
-className={showItem ? "bg-black text-white px-5 py-2  rounded-md shadow-lg":"bg-gray-400 px-5 py-2 m-1 rounded-md shadow-lg "}
+className={showItem ? "bg-black text-white  p-2 text-1xl m-2    sm:px-5 sm:py-2 sm:m-1 rounded-md shadow-lg  ":"bg-gray-200   p-2 text-1xl m-2  sm:px-5 sm:py-2 sm:m-1 rounded-md shadow-lg "}
    
     >{name}</button>
 }

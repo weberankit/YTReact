@@ -8,7 +8,7 @@ const chatSlice=createSlice({
     reducers:{
       addMessage:(state,action)=>{
         //deleting 1 (from top i.e not the recent msg)  after every 10 so page will not be explode
-        if(state.message.length>10){
+        if(state.message.length>18){
         state.message.splice(OFFSET_LIVE_CHAT,1)
     }
         

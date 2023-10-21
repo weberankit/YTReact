@@ -26,19 +26,19 @@ return(()=>{clearInterval(timer)})
 
 return(
     <>
-<div className="w-full h-[600px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse">
-    <h1>jide</h1>
+<div className="w-full h-[600px] ml-2 p-2  rounded-lg overflow-y-scroll flex flex-col-reverse bg-black text-white shadow-white">
+    <h1>live Chat</h1>
     <div>
 {chatMessages.map(c=> <ChatMessage name={c.name} message={c.message}/> )}
    </div>
 
 
 </div>
-<form className="w-full p-2 ml-2 border border-black" onSubmit={(e)=>{e.preventDefault() 
+<form className="w-full p-2 ml-2 border border-black bg-black text-white rounded-lg" onSubmit={(e)=>{e.preventDefault() 
     dispatch(addMessage({name:"Ankit kr" , message:liveMessage}))
     setLiveMessage("")
     ;}}>
-<input className="border border-black" type="text" value={liveMessage} onChange={(e)=>{setLiveMessage(e.target.value)}}/>    
+<input className="border border-black text-black" type="text" value={liveMessage} onChange={(e)=>{setLiveMessage(e.target.value)}}/>    
 <button className="px-2 mx-2 bg-green-400">Send</button>
 </form> 
 

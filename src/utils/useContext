@@ -69,7 +69,156 @@ https://www.youtube.com/youtubei/v1/browse?key=AIzaSyDSiSlCWc4w5AlrgN2dLuS2DYaC0
 
 
 
+///comment section
+{
 
 
+
+   import { useState,useEffect } from "react";
+
+   const commentData=[
+       {
+           name:"Ankit kr",
+           text:"this is just an awesome video great",
+           replies:[{
+               name:"Ankit kr",
+               text:"this is just an awesome video great",
+               replies:[]
+           },
+           {
+               name:"Ankit kr",
+               text:"this is just an awesome video great",
+               replies:[{
+                   name:"Ankit kr",
+                   text:"this is just an awesome video great",
+                   replies:[{
+                       name:"Ankit kr",
+                       text:"this is just an awesome video great",
+                       replies:[]
+                   },{
+                       name:"Ankit kr",
+                       text:"this is just an awesome video great",
+                       replies:[]
+                   }]
+               }]
+           }]
+       },
+       {
+           name:"Ankit kr",
+           text:"this is just an awesome video great",
+           replies:[]
+       },
+       {
+           name:"Ankit kr",
+           text:"this is just an awesome video great",
+           replies:[]
+       },
+   
+   
+   ]
+   
+   const Comment=({data , setData})=>{
+       console.log(data)
+       const [reply , setReply] =useState([])
+       console.log(reply)
+       const {name,text,replies} =data;
+      
+       return(
+   <div>
+       
+           <div className="flex">
+          <div>
+           <h1>reply</h1>    
+           <input type="text" className="border border-black" onChange={(e)=>{
+               setReply({name:"Ankit",replies:[],text:e.target.value})
+            // setReply({ ...reply, text: e.target.value })
+           }}/>
+           <button onClick={
+        ()=>{
+         data.replies.push(reply )
+         //setData()
+         console.log(commentData)
+        setData(commentData)
+       console.log(data ,"updated")
+        
+   
+   
+   
+   
+        }}>done</button>
+          </div>
+   
+   
+    <img className="w-8 h-8" alt="user-image" src="https://www.svgrepo.com/show/525577/user-circle.svg"/>
+      <div>
+   <p className="font-bold"> {name}</p>
+   <p>{text}</p>
+      </div>
+   
+   
+           </div>
+   </div>
+   
+   
+       )
+   
+   }
+   
+   
+   const CommentList=({comments ,setData})=>{
+     console.log(comments)
+   
+   
+    
+      
+   return(
+       <div>
+   {comments.map((comment)=>{
+       return (
+           <div>
+       <Comment data={comment}  setData={setData}/>
+   
+       <div className="pl-5 border border-l-black ml-5">
+           <CommentList comments={comment.replies} />
+       </div>
+         </div>
+   
+       )
+   })}
+   
+       </div>
+   )
+   }
+   
+   const CommentControl=()=>{
+       const [commentDatas,setCommentData]=useState(commentData)
+       console.log(commentDatas,"this")
+   
+   
+   
+   
+   return(
+       <div className="m-5 p-2 shadow-sm bg-gray-100 p-2 rounded">
+     <h1 className="text-2xl font-bold">comments:<span className="font-thin text-lg"> N-level nested comments</span></h1>
+   {
+   <CommentList comments={commentDatas} setData={setCommentData}/>
+   }
+   
+   
+   
+   
+   
+       </div>
+   )
+   }
+   
+   
+   
+   
+   export default CommentControl
+
+
+
+}
 
 

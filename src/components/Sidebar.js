@@ -3,7 +3,7 @@
 import {useSelector} from "react-redux"
 import {Link} from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBowlingBall, faCircle, faFlag, faGamepad, faM, faMusic, faWallet} from '@fortawesome/free-solid-svg-icons';
+import { faBowlingBall, faCircle, faFlag, faGamepad, faHome, faM, faMusic, faWallet} from '@fortawesome/free-solid-svg-icons';
 const Sidebar=()=>{
 
 const isMenuOption=useSelector(store => store.app.isMenuopen)
@@ -15,28 +15,31 @@ if(!isMenuOption) return null
 <div className="sticky top-12  h-full ">
 
 <div className="p-5 shadow-lg w-48 " >
-<h1 className="font-bold pt-5">{<Link to={"/"}>Home</Link>}</h1>
-<ul >
-<li className="py-2"><FontAwesomeIcon icon={faMusic}  className="pr-4 text-xs "/> <span> Music</span></li>
-<li className="py-2"> <FontAwesomeIcon icon={faBowlingBall}  className="pr-4  text-xs "/> <span >Sports</span></li>
-<li className="py-2"><FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/> <span >Gaming</span></li>
-<li className="py-2"> <FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/><span >Movies</span></li>
+  <ul >  
+<li className=" pt-5 flex pb-2 pl-5 rounded-lg font-serif hover:bg-black hover:text-white"><div><FontAwesomeIcon icon={faHome}  className="pr-4 text-xs "/></div>{<Link to={"/"}><div>Home</div></Link>}</li>
+
+<li className="flex pb-2 font-serif pl-5 rounded-lg hover:bg-black hover:text-white"><div><FontAwesomeIcon icon={faMusic}  className="pr-4 text-xs "/></div>  <div> Music</div></li>
+<li className="flex pb-2 font-serif  pl-5 rounded-lg hover:bg-black hover:text-white"> <div><FontAwesomeIcon icon={faBowlingBall}  className="pr-4  text-xs "/></div> <div >Sports</div></li>
+<li className="flex pb-2 font-serif  rounded-lg pl-5 hover:bg-black hover:text-white"><div><FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/></div> <div >Gaming</div></li>
+<li className="flex font-serif rounded-lg  pl-5 hover:bg-black hover:text-white"> <div><FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/></div><div >Movies</div></li>
 </ul>
 
-<h1 className="font-bold pt-5">watch later</h1>
+
 <ul>
-<li>Music</li>
-<li>Sports</li>
-<li>Gaming</li>
-<li>Movies</li>
+
+  <li className=" font-serif p-2 pt-2 rounded-lg hover:bg-black hover:text-white">watch later</li>  
+<li className=" font-serif  pl-5 rounded-lg hover:bg-black hover:text-white">Music</li>
+<li className=" font-serif  pl-5 hover:bg-black hover:text-white rounded-lg">Sports</li>
+<li className=" font-serif  pl-5 hover:bg-black hover:text-white rounded-lg">Gaming</li>
+<li className="   font-serif  pl-5 hover:bg-black hover:text-white rounded-lg">Movies</li>
 </ul>
-<h1 className="font-bold pt-5">Subscriptions</h1>
+<h1 className="font-bold pt-5 p-3 hover:bg-black hover:text-white rounded-lg">Subscriptions</h1>
 
 <ul >
-<li className="py-2"><FontAwesomeIcon icon={faMusic}  className="pr-4 text-xs "/> <span> Music</span></li>
-<li className="py-2"> <FontAwesomeIcon icon={faBowlingBall}  className="pr-4  text-xs "/> <span >Sports</span></li>
-<li className="py-2"><FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/> <span >Gaming</span></li>
-<li className="py-2"> <FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/><span >Movies</span></li>
+<li className="py-2 pl-2  hover:bg-black hover:text-white rounded-lg"><FontAwesomeIcon icon={faMusic}  className="pr-4 text-xs "/> <span> Music</span></li>
+<li className="py-2 pl-2 hover:bg-black hover:text-white rounded-lg"> <FontAwesomeIcon icon={faBowlingBall}  className="pr-4  text-xs "/> <span >Sports</span></li>
+<li className="py-2 pl-2  hover:bg-black hover:text-white rounded-lg"><FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/> <span >Gaming</span></li>
+<li className="py-2 pl-2  hover:bg-black hover:text-white rounded-lg"> <FontAwesomeIcon icon={faCircle}  className="pr-4  text-xs "/><span >Movies</span></li>
 </ul>
 
 

@@ -1,3 +1,5 @@
+
+
 //import React from "react"
 import {useDispatch, useSelector} from "react-redux"
 import { toogleSlice } from "../utils/appSlice"; 
@@ -9,8 +11,26 @@ import { cacheResults } from "../utils/searchSlice";
 import { storeSearchQuery ,tooglefuncSlice} from "../utils/filterSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone, faSearch, faUser, faVideo} from '@fortawesome/free-solid-svg-icons';
+
+
+
+
+
 const Head=()=>{
 const dispatch = useDispatch();
+
+let flag=true
+
+
+function screenSize(){
+  
+  if(window.screen.width<600){
+   flag=false
+  }
+}
+screenSize()
+
+
 const toggleMenuHandler = ()=>{
     dispatch(toogleSlice())
     
@@ -33,8 +53,8 @@ searchCache={
 searchQuery = iphone
 */
 
-
-
+const [hideIcon , setHideIcon]=useState(true)
+console.log(hideIcon,"hideicon")
 useEffect(()=>{
     
     //console.log(searchQuery+"ji")
@@ -100,20 +120,23 @@ useEffect(() => {
 //console.log(Math.random())
 
     return(
-<div className="fixed w-full bg-white">
-<div className="grid grid-flow-col p-5 m-2 shadow-lg ">
-
-    <div className="flex col-span-1 ">
+<div className="fixed w-full bg-white  z-20">
+<div className=" flex flex-col    sm:grid sm:grid-flow-col p-5 m-2 shadow-lg ">
+{
+  hideIcon &&  <div className="flex col-span-1 ">
     <img className="h-8 cursor-pointer" onClick={()=>toggleMenuHandler()} alt="menu" src="https://www.svgrepo.com/show/506800/burger-menu.svg"/>
    <a href="/"> <img className="h-8 mx-4" alt ="youtube logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzg_LCf5ZahVQ42WRFD0PS3TNrpdOhqvckaO6-xgyo7kmVo5KW2EV6CEUakyaSGdmxqw&usqp=CAU" />
    </a> 
     </div>
+}
+
     <div>
     <div className="col-span-12 px-10">
-    <input className="w-5/6 border border-gray-400 p-2  rounded-l-full"  type="text" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} 
-  
+    <input className={" w-5/6 border border-gray-400 p-1  rounded-l-full"} type="text" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} 
+    onFocus={()=>setHideIcon(false)}
+    onBlur={()=>setHideIcon(true)}
     />
-    <button className="border border-gray-400 p-2 rounded-r-full" onClick={()=>{
+    <button className="border border-gray-400 p-1 rounded-r-full" onClick={()=>{
       dispatch(storeSearchQuery(searchQuery))
       dispatch(tooglefuncSlice(true))
       setSuggestion([])
@@ -139,15 +162,16 @@ useEffect(() => {
 
 
     </div>
-
-<div className="h-1 rounded-lg"><FontAwesomeIcon icon={faMicrophone} className="pt-3.5" /></div>
-    <div  className="col-span-1 text-center flex justify-around" >
+{
+flag&& <div className="h-1 rounded-lg"><FontAwesomeIcon icon={faMicrophone} className="pt-3.5" /></div>
+}
+   {flag&& <div  className="col-span-1 text-center flex justify-around" >
   <div><FontAwesomeIcon icon={faVideo} className="pt-3.5"/></div>  
 
   <div ><FontAwesomeIcon icon={faUser} className="text-red-600 pt-3.5"/>
     </div> 
     </div>
-
+}
 
 </div>
 </div>

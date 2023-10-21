@@ -42,3 +42,54 @@ export function makeid(length) {
     }
     return result;
 }
+
+
+
+export const commentData=[
+  {
+      name:"Ankit kr",
+      text:"this is just an awesome video great",
+      id:"A1",
+      replies:[{
+          name:"Ankit kr",
+          text:"this is just an awesome video great",
+          id:"A2",
+          replies:[]
+      },
+      {
+          name:"Ankit kr",
+          text:"this is just an awesome video great",
+          id:"A3",
+          replies:[{
+              name:"Ankit kr",
+              text:"this is just an awesome video great",
+              id:"A4",
+              replies:[{
+                  name:"Ankit kr",
+                  text:"this is just an awesome video great",
+                  id:"A5",
+                  replies:[]
+              },{
+                  name:"Ankit kr",
+                  text:"this is just an awesome video great",
+                  id:"A6",
+                  replies:[]
+              },]
+          }]
+      }]
+  },
+  {
+      name:"Ankit kr",
+      text:"this is just an awesome video great",
+      id:"A7",
+      replies:[]
+  },
+  {
+      name:"Ankit kr",
+      text:"this is just an awesome video great",
+      id:"A8",
+      replies:[]
+  },
+
+
+]
