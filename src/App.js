@@ -6,6 +6,12 @@ import store from "./utils/store";
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import MainContainer from "./components/MainContainer"
 import WatchPage from "./components/WatchPage"
+import Error from "./components/Error";
+import { lazy,Suspense } from "react";
+
+
+const VideoWatch=lazy(()=>import("./components/WatchPage"))
+
 
 //import '@fortawesome/fontawesome-free/css/all.css';
 const appRouter=createBrowserRouter([
@@ -13,6 +19,7 @@ const appRouter=createBrowserRouter([
 
 path:"/",
 element:<Body/>,
+errorElement:<Error/>,
 
 children:[
 
@@ -23,7 +30,9 @@ element:<MainContainer/>
 
 {
  path:"watch",
- element:<WatchPage/>
+ element:
+ <Suspense fallback={<h1 className="text-center font-bold ">loading.......</h1>}>
+ <VideoWatch/></Suspense>
 }
 
          ]

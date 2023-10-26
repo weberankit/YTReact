@@ -13,7 +13,7 @@ const ButtonList=()=>{
   const [bgColor , setbgColor] =useState(0)
 
   return(
-<div className="overflow-scroll flex pt-7 md:pt-4 pb-1">
+<div className="overflow-scroll flex pt-7 md:pt-4 pb-1 sm:ml-8">
 {list.map((item,index)=> <Button  name={item}
               showItem={index===bgColor?true:false}
               setbgColor={()=>{setbgColor(index)}}

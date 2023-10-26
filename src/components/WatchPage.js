@@ -9,6 +9,7 @@ import { faBell, faMessage, faQrcode, faThumbsUp } from "@fortawesome/free-solid
 import QRCode from 'qrcode.react';
 import "../App.css"
 import { generate } from "../utils/helper";
+import ShimmerEffect from "./ShimmerEffect";
 const WatchPage = () => {
   const [chatvisible , setchatVisible] = useState(false)
   const [searchParams]=useSearchParams()
@@ -30,6 +31,11 @@ const [qrcodeShow , setQrcodeShow]=useState(false)
 
 const QrCodeString="https://www.youtube.com/embed/"+ searchParams.get("v")+"?autoplay=1&mute=1"
 //console.log(QrCodeString)
+
+
+
+
+
   return( 
 
    
@@ -38,6 +44,9 @@ const QrCodeString="https://www.youtube.com/embed/"+ searchParams.get("v")+"?aut
  <div className="px-5 flex flex-col ">
   <div >
   
+
+
+
     <div className="w-full rounded-md pt-3 relative">
     <iframe 
     className="w-full  youtube-iframe"

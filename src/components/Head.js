@@ -9,6 +9,7 @@ import { YOUTUBE_Search_API } from "../utils/constant";
 import { cacheResults } from "../utils/searchSlice";
 //import {Link} from "react-router-dom"
 import { storeSearchQuery ,tooglefuncSlice} from "../utils/filterSlice";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone, faSearch, faUser, faVideo} from '@fortawesome/free-solid-svg-icons';
 
@@ -132,7 +133,7 @@ useEffect(() => {
 {
   hideIcon &&  <div className="flex col-span-1 ">
     <img className="h-8 cursor-pointer" onClick={()=>toggleMenuHandler()} alt="menu" src="https://www.svgrepo.com/show/506800/burger-menu.svg"/>
-   <a href="/"> <img className="h-8 mx-4" alt ="youtube logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzg_LCf5ZahVQ42WRFD0PS3TNrpdOhqvckaO6-xgyo7kmVo5KW2EV6CEUakyaSGdmxqw&usqp=CAU" />
+   <a to="/"> <img className="h-8 mx-4" alt ="youtube logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzg_LCf5ZahVQ42WRFD0PS3TNrpdOhqvckaO6-xgyo7kmVo5KW2EV6CEUakyaSGdmxqw&usqp=CAU" />
    </a> 
     </div>
 }
@@ -140,8 +141,19 @@ useEffect(() => {
     <div>
     <div className="col-span-12 px-10">
     <input className={" w-5/6 border border-gray-400 p-1  rounded-l-full"} type="text" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} 
-    onFocus={()=>setHideIcon(false)}
-    onBlur={()=>setHideIcon(true)}
+    onFocus={()=>{
+    //only for smaller devices
+      if(window.screen.width<600)   setHideIcon(false)
+   
+    
+    }
+    
+    }
+    onBlur={()=>{
+      
+      if(window.screen.width<600) setHideIcon(true)
+    
+    }}
     />
     <button className="border border-gray-400 p-1 rounded-r-full" onClick={()=>{
       dispatch(storeSearchQuery(searchQuery))
