@@ -2,7 +2,7 @@
 
 //import React from "react"
 import {useDispatch, useSelector} from "react-redux"
-import { toogleSlice } from "../utils/appSlice"; 
+import { toogleSlice,closeMenu } from "../utils/appSlice"; 
 import {useState,useEffect} from "react"
 import { YOUTUBE_Search_API } from "../utils/constant";
 //import {useSelector} from "react-redux"
@@ -18,6 +18,13 @@ import { faMicrophone, faSearch, faUser, faVideo} from '@fortawesome/free-solid-
 
 const Head=()=>{
 const dispatch = useDispatch();
+
+if(window.screen.width<600){
+  dispatch(closeMenu())
+}
+
+
+
 
 let flag=true
 

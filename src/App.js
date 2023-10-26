@@ -6,6 +6,7 @@ import store from "./utils/store";
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import MainContainer from "./components/MainContainer"
 import WatchPage from "./components/WatchPage"
+
 //import '@fortawesome/fontawesome-free/css/all.css';
 const appRouter=createBrowserRouter([
   {
@@ -33,6 +34,9 @@ element:<MainContainer/>
 
 
 function App() {
+
+  
+
   return (
 
    <Provider store= {store}> 
