@@ -1,4 +1,4 @@
-PLZ IGNORE THIS ALL RIGHT  NOW IT IS IN THE DEVELOPMENT PHASE
+
 
 # Getting Started with Create React App
 
