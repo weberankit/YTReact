@@ -38,19 +38,7 @@ function App() {
    <Provider store= {store}> 
     <div className="App">
 
-{
-  /*
-  Head
-  body
-  sidebar
-   MenuItems
-  MainContainer
-   ButtonList
-   VideoContainer
-     videocard 
- 
-  */ 
-}
+
 
 <Head/>{/*header part is same erverywhere so used below router provider as we want to change that part only if something ched in url */}
 {/*if something changes in url then componet changes a/c to router */}
