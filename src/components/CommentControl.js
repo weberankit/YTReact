@@ -31,13 +31,13 @@ const Comment = ({ data }) => {
 
 
 
-      <div className="p-1 ">
+      <div className="p-1">
         
         <input
         value={check}
         placeholder="Your Reply"
           type="text"
-          className="border border-black w-44 sm:w-80 p-1 rounded-2xl mr-1"
+          className="border border-black w-44 sm:w-72 p-1 bg-black  mr-1 text-white text-shadow rounded"
           onChange={(e) => {
             setcheck(e.target.value)
             setAdd({
@@ -103,12 +103,12 @@ const CommentControl = () => {
   //console.log(commentDatas,"this")
    const [checkInput,setcheckInput]=useState()
   return (
-    <div className="m-5 p-2 shadow-sm   rounded bg-gray-200 line-clamp-2">
+    <div className="m-5 p-2 shadow-sm   rounded bg-black line-clamp-2">
         <div className="flex justify-between flex-col md:flex-row">
           <div>
-      <h1 className="text-2xl font-bold">
+      <h1 className="text-2xl font-bold text-white">
         comments:
-        <span className="font-thin text-sm sm:text-lg"> N-level nested comments</span>
+        <span className="font-thin text-sm sm:text-lg text-white"> N-level nested comments</span>
       </h1>
        </div>
 

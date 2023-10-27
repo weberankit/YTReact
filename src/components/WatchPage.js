@@ -1,6 +1,6 @@
 import { closeMenu } from "../utils/appSlice";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useContext} from "react";
 import {useSearchParams} from "react-router-dom"
 import CommentControl from "./CommentControl";
 import LiveChat from"./LiveChat"
@@ -9,6 +9,8 @@ import { faBell, faMessage, faQrcode, faThumbsUp } from "@fortawesome/free-solid
 import QRCode from 'qrcode.react';
 import "../App.css"
 import { generate } from "../utils/helper";
+import ShimmerEffect from "./ShimmerEffect";
+import { dartModeFlag } from "../utils/useContexts";
 const WatchPage = () => {
   const [chatvisible , setchatVisible] = useState(false)
   const [searchParams]=useSearchParams()
@@ -20,7 +22,11 @@ const [qrcodeShow , setQrcodeShow]=useState(false)
 
 //setQrcode("https://www.youtube.com/embed/"+ searchParams.get("v")+"?autoplay=1&mute=1")
 
+const {modeFlag,setModeflag} =useContext(dartModeFlag) 
+console.log(modeFlag)
 
+let classValue;
+(modeFlag==true)?classValue="bg-[#0f0f0f] text-white":classValue="bg-white text-black"
 
   useEffect(() => {
   //  console.log("hii");
@@ -30,14 +36,22 @@ const [qrcodeShow , setQrcodeShow]=useState(false)
 
 const QrCodeString="https://www.youtube.com/embed/"+ searchParams.get("v")+"?autoplay=1&mute=1"
 //console.log(QrCodeString)
+
+
+
+
+
   return( 
 
    
-  <div className="flex flex-col w-full overflow-x-scroll">
+  <div className={`${classValue}flex flex-col w-full overflow-x-scroll`}>
  
  <div className="px-5 flex flex-col ">
   <div >
   
+
+
+
     <div className="w-full rounded-md pt-3 relative">
     <iframe 
     className="w-full  youtube-iframe"
@@ -61,8 +75,8 @@ const QrCodeString="https://www.youtube.com/embed/"+ searchParams.get("v")+"?aut
   </div>
 
   <div className="flex justify-around w-72">
-   <div className=" fixed left-[50%] top-[50%]">{qrcodeShow&&<QRCode value={QrCodeString}/>}</div>
-    <h2 className="p-3 bg-white font-bold"> <FontAwesomeIcon icon={faThumbsUp} className="font-normal"/> 101K</h2>
+   <div className= {`${classValue} fixed left-[50%] top-[50%]`}>{qrcodeShow&&<QRCode value={QrCodeString}/>}</div>
+    <h2 className={`${classValue} pt-3 font-bold `}> <FontAwesomeIcon icon={faThumbsUp} className={`font-normal `}/> 101K</h2>
     <h3 onClick={
       ()=>{
 
@@ -70,7 +84,7 @@ const QrCodeString="https://www.youtube.com/embed/"+ searchParams.get("v")+"?aut
 
   
       }
-    } className="p-3 font-bold cursor-pointer"><FontAwesomeIcon icon={faQrcode}/> {qrcodeShow==true?"Hide":"Open in Phone "}</h3>
+    } className={`p-3 font-bold cursor-pointer`}><FontAwesomeIcon icon={faQrcode} className={classValue}/> {qrcodeShow==true?<span className={classValue}>Hide</span>:<span className={classValue}>Open in Phone </span>}</h3>
 </div>
 </div>
     </div>
