@@ -20,5 +20,27 @@ const ShimmerEffect = () => {
     );
   };
   
+
+export const  WatchShimmer=()=>{
+    const boxes = new Array(1).fill(undefined);
+  
+    return (
+      <>
+        <div className=" ml-5  sm:-m-3.5 w-full">
+          {boxes.map((item, index) => (
+            <div key={index} className=" m-3.5 p-2 animate-pulse bg-gray-200  w-full">
+              <div className="flex flex-col">
+                <div className=" w-full  rounded-md bg-gray-400"></div>
+                
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+}
+
+
+
   export default ShimmerEffect;
   

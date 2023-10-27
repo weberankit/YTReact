@@ -5,11 +5,11 @@ import {Provider} from "react-redux"
 import store from "./utils/store";
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import MainContainer from "./components/MainContainer"
-import WatchPage from "./components/WatchPage"
+//import WatchPage from "./components/WatchPage"
 import Error from "./components/Error";
-import { lazy,Suspense } from "react";
-
-
+import { lazy,Suspense,useState,useContext } from "react";
+import  { WatchShimmer } from "./components/ShimmerEffect";
+import { dartModeFlag } from "./utils/useContexts";
 const VideoWatch=lazy(()=>import("./components/WatchPage"))
 
 
@@ -31,7 +31,7 @@ element:<MainContainer/>
 {
  path:"watch",
  element:
- <Suspense fallback={<h1 className="text-center font-bold ">loading.......</h1>}>
+ <Suspense fallback={ <div className="flex justify-center items-center p-2 text-center"><div><h1 className="font-bold text-4xl text-shadow text-center" >Loading....</h1><WatchShimmer/></div></div> }>
  <VideoWatch/></Suspense>
 }
 
@@ -43,11 +43,13 @@ element:<MainContainer/>
 
 
 function App() {
+   const {flag} = useContext(dartModeFlag)
+   console.log(flag.mode)
+  const [modeFlag,setModeflag] =useState(flag.mode)
 
-  
 
   return (
-
+   <dartModeFlag.Provider value={{modeFlag ,setModeflag}}>
    <Provider store= {store}> 
     <div className="App">
 
@@ -61,7 +63,7 @@ function App() {
 
 </div>
 </Provider>
-
+</dartModeFlag.Provider>
   );
 }
 
