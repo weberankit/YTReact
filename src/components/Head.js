@@ -9,7 +9,7 @@ import { YOUTUBE_Search_API } from "../utils/constant";
 import { cacheResults } from "../utils/searchSlice";
 //import {Link} from "react-router-dom"
 import { storeSearchQuery ,tooglefuncSlice} from "../utils/filterSlice";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMoon, faPlay, faSearch, faUser, faVideo} from '@fortawesome/free-solid-svg-icons';
 import { dartModeFlag } from "../utils/useContexts";
@@ -46,7 +46,7 @@ const [searchQuery , setSearchQuery]  = useState("")
 const [suggestion , setSuggestion] =useState([])
 
 
-//console.log(searchQuery,suggestion,"suggestion")
+
 
 //subscribing to the store
 const searchCache=useSelector((store)=>store.search)

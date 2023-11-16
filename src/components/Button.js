@@ -1,47 +1,12 @@
-
 import { useState } from "react"
-
 import { useDispatch } from "react-redux"
 import { storeSearchQuery,tooglefuncSlice } from "../utils/filterSlice"
 
-
-
-
 const Button=({name,showItem,setbgColor,index})=>{
 
-  
-      const dispatch=useDispatch()
-       
-    
-  
-/*
-   const getData=async(value)=>{
-      const data= await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&q=${value}&key=AIzaSyAaxkDGz_6EgvCLLn_O7MBYMcK78HyzI10`);
-      
-      const json=await data.json()
-    console.log(json,"this is json")
-   setStoreResult(json.items)
-   // return json
-    }
-
-*//*
-   useEffect(()=>{
-      getData(sortedButton)
-console.log(getData(sortedButton))
-    },[sortedButton])
-     /* */
-
-   // const{name}=props
-   //const{setbgColor} =props.setbgColor
-   //nsole.log(setbgColor)
-
-    return(
- <div>
-   
-   
-
-
-
+const dispatch=useDispatch()
+       return(
+      <div>
 
 {
  <button  

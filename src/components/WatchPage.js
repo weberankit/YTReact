@@ -14,13 +14,13 @@ import { dartModeFlag } from "../utils/useContexts";
 const WatchPage = () => {
   const [chatvisible , setchatVisible] = useState(false)
   const [searchParams]=useSearchParams()
-console.log(searchParams.get("v"))
+//console.log(searchParams.get("v"))
   const dispatch = useDispatch();
   //console.log(closeSidebarDispatch)
 const [qrcodeShow , setQrcodeShow]=useState(false)
   /*closing sidebar when WatchPagecomponent load*/
 
-//setQrcode("https://www.youtube.com/embed/"+ searchParams.get("v")+"?autoplay=1&mute=1")
+
 
 const {modeFlag,setModeflag} =useContext(dartModeFlag) 
 console.log(modeFlag)
