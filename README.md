@@ -25,16 +25,18 @@ So, I switched to Redux and adopted the ID value approach for adding comments. �
 However, learning recursion took time, as I was not well-versed in it. After understanding it, I implemented 🚨 N-level recursive filtering 🚨 for adding replies to nested comments. 🧠🔄 (so that nested comments can be filtered and replies added to that particular comment, and also generated a unique ID for the reply comments for further comments)
 And voilà, it's done! 🎉
 
-✔️website Live link and ✔️ GitHub link (check the comment section)
+
 
 Other cool features(common):
 🔵 Smooth debouncing in search suggestions with cache
 🔵 Live chat features like YouTube
 🔵 Routing
 
-Still on the to-do list:-soon :
-✨ Shimmer effect
-📁 Lazy loading
+
+🌟Dark Mode (Built from scratch, without using any libraries)
+🌟 Filter Button (Utilized the same search Redux slice 😊)
+🌟Shimmer Effect
+🌟Lazy Loading
 🛠️ Error handling
 
 
