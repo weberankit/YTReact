@@ -1,7 +1,43 @@
 ![s](https://github.com/weberankit/YTReact/assets/94105514/8e9d9cba-a697-4c8e-98ce-4d1817010236)![Screenshot (208)](https://github.com/weberankit/YTReact/assets/94105514/b52d9e0c-fcf6-4a0e-8464-9ad3ae738d4c)![thumbnail](https://github.com/weberankit/YTReact/assets/94105514/98e7a67b-2bfb-42fc-b1d0-8f5bcd39b99a)
 
+project description:___
+YouTube: 🎇 What's new in this project❓ 🗼 There are lots of YouTube projects.
 
+🎯 But this one's different: ✌️
 
+🚀 Big thanks to Akshay Saini 🚀 and the NamasteDev.com course. I've not only learned from the course but also 📢 🚀 added some cool new features. 🎓🙌🚀
+
+Here's the Project Uniqueness:
+
+🔵 Added a QR code, making it a breeze to open videos on your phone by scanning. 📱🔓
+
+🔵 The most exciting part:
+
+📣 Now, you can reply and comment on nested comments of any depth, thanks to our recursive filtering. 🧩🔁
+
+✅ Some say DSA isn't that important, but trust me, it's been a challenge for me, a DSA newbie. 📚💪 It is important to know at least the basics.
+
+Difficulty :
+Fail-😌
+I initially added replies directly to comments without IDs, and it worked. But in the console, it only displayed the value, not in the DOM – possibly due to complex nested comments. React does not re-render it. I tried everything to make it happen, but it didn't. 😓🔍
+
+Finally 😃
+So, I switched to Redux and adopted the ID value approach for adding comments. 🔄💬
+
+However, learning recursion took time, as I was not well-versed in it. After understanding it, I implemented 🚨 N-level recursive filtering 🚨 for adding replies to nested comments. 🧠🔄 (so that nested comments can be filtered and replies added to that particular comment, and also generated a unique ID for the reply comments for further comments)
+And voilà, it's done! 🎉
+
+✔️website Live link and ✔️ GitHub link (check the comment section)
+
+Other cool features(common):
+🔵 Smooth debouncing in search suggestions with cache
+🔵 Live chat features like YouTube
+🔵 Routing
+
+Still on the to-do list:-soon :
+✨ Shimmer effect
+📁 Lazy loading
+🛠️ Error handling
 
 
 
