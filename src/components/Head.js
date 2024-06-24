@@ -46,7 +46,7 @@ const [searchQuery , setSearchQuery]  = useState("")
 const [suggestion , setSuggestion] =useState([])
 
 
-//console.log(searchQuery,suggestion,"suggestion")
+
 
 //subscribing to the store
 const searchCache=useSelector((store)=>store.search)

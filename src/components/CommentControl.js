@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import store from "../utils/store";
 
 const Comment = ({ data }) => {
-//  console.log(data,"mai fake hu");
+
   const [add, setAdd] = useState([]);
 
   const [check,setcheck]=useState()
@@ -47,16 +47,12 @@ const Comment = ({ data }) => {
               text: e.target.value,
               id:data.id
             });
-            // setReply({ ...reply, text: e.target.value })
+          
           }}
         />
         <button className="p-2 bg-red-500 text-white shadow-xl rounded-lg "
           onClick={() => {
-           // dispatch(addComment(reply));
-         // data.replies.push(add)
-        // const newComment = { ...data };
-        // newComment.replies.push(add);
-        // console.log(newComment)
+        
         check==undefined?alert("plz provide input"):dispatch(replyComment(add));
        
          setcheck("")
@@ -97,12 +93,10 @@ const CommentList = ({ comments }) => {
 
 const CommentControl = () => {
   let commentData = useSelector((store) => store.comment);
-  //console.log(commentData.commentData,"nnnn");
+  
   const dispatch = useDispatch();
   const [reply, setReply] = useState([]);
-  //  const [commentDatas,setCommentData]=useState(commentData.commentData)
-  //console.log(commentDatas,"this")
-   const [checkInput,setcheckInput]=useState()
+ const [checkInput,setcheckInput]=useState()
   return (
     <div className="m-5 p-2 shadow-sm   rounded bg-black  line-clamp-2">
         <div className="flex justify-between flex-col md:flex-row">

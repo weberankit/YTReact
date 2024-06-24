@@ -20,7 +20,7 @@ const WatchPage = () => {
 const [qrcodeShow , setQrcodeShow]=useState(false)
   /*closing sidebar when WatchPagecomponent load*/
 
-//setQrcode("https://www.youtube.com/embed/"+ searchParams.get("v")+"?autoplay=1&mute=1")
+
 
 const {modeFlag,setModeflag} =useContext(dartModeFlag) 
 console.log(modeFlag)
