@@ -13,7 +13,7 @@ const VideoContainer = () => {
   const [filterVideos, setFilterVideos] = useState([]);
 
   const {modeFlag,setModeflag} =useContext(dartModeFlag) 
-console.log(modeFlag)
+
 
 let classValue;
 (modeFlag==true)?classValue="bg-[#0f0f0f] text-white":classValue="bg-white text-black"
@@ -44,7 +44,7 @@ let classValue;
 //setting up random index for add video
   function RandomIndex(){return Math.floor(Math.random()*50)}
   
-
+//not sure--  to protect from lots of rendering used callfunction 
   useEffect(() => {
     if (SearchValue.callFunction) {
       RandomIndex()

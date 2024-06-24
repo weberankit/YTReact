@@ -11,7 +11,7 @@ const dispatch=useDispatch()
 const isMenuOption=useSelector(store => store.app.isMenuopen)
 
 const {modeFlag,setModeflag} =useContext(dartModeFlag) 
-console.log(modeFlag)
+
 
 let classValue;
 (modeFlag==true)?classValue="bg-[#0f0f0f] text-white":classValue="bg-white text-black"

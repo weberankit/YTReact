@@ -30,7 +30,8 @@ const Comment = ({ data }) => {
      </div>
 
 
-
+{//here dispathing reply comments to commentstore
+}
       <div className="p-1">
         
         <input
@@ -103,7 +104,7 @@ const CommentControl = () => {
   //console.log(commentDatas,"this")
    const [checkInput,setcheckInput]=useState()
   return (
-    <div className="m-5 p-2 shadow-sm   rounded bg-black line-clamp-2">
+    <div className="m-5 p-2 shadow-sm   rounded bg-black  line-clamp-2">
         <div className="flex justify-between flex-col md:flex-row">
           <div>
       <h1 className="text-2xl font-bold text-white">
@@ -112,6 +113,9 @@ const CommentControl = () => {
       </h1>
        </div>
 
+{
+  //here dispatching comment not reply one to comment store
+}
       <div className="p-1">
         
           <input

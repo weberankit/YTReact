@@ -9,7 +9,7 @@ import { YOUTUBE_Search_API } from "../utils/constant";
 import { cacheResults } from "../utils/searchSlice";
 //import {Link} from "react-router-dom"
 import { storeSearchQuery ,tooglefuncSlice} from "../utils/filterSlice";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMoon, faPlay, faSearch, faUser, faVideo} from '@fortawesome/free-solid-svg-icons';
 import { dartModeFlag } from "../utils/useContexts";
@@ -174,7 +174,7 @@ useEffect(() => {
   <div className={` ${classValue}fixed py-2 px-5 w-[32rem] shadow-lg rounded-md  ml-12`}>
     <ul>
 
-     {suggestion.map((item)=>{
+     {suggestion?.map((item)=>{
         return  (
         <li onClick={()=>{
        //   setSearchQuery(item)

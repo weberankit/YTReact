@@ -12,7 +12,7 @@ const list=["All","New","Songs","Comedy","Movie","teaser","tamil","Ank","Officia
 
 const ButtonList=()=>{
   const {modeFlag,setModeflag} =useContext(dartModeFlag) 
-console.log(modeFlag)
+
 
 let classValue;
 (modeFlag==true)?classValue="bg-[#0f0f0f] ":classValue="bg-white text-black"
